@@ -1,0 +1,6 @@
+# Ignora arquivos de dados volumosos
+*.xlsx
+
+# Ignora caches locais do Python e Streamlit
+__pycache__/
+.streamlit/

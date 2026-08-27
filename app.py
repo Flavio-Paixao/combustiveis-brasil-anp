@@ -111,7 +111,7 @@ c4.metric("Registros no Periodo", f"{registros:,}".replace(",", "."))
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 st.markdown('<div class="section-label">Analise por Estado</div>', unsafe_allow_html=True)
-st.markdown("### Preco Medio de Revenda por Estado")
+st.markdown("<h3 style='font-family:Satoshi,sans-serif;font-weight:800;color:#e2e8f0;'>Preco Medio de Revenda por Estado</h3>", unsafe_allow_html=True)
 
 preco_estado = df_f.groupby("ESTADO")["PRECO_MEDIO"].mean().reset_index().sort_values("PRECO_MEDIO").dropna()
 fig_estado = px.bar(preco_estado, x="ESTADO", y="PRECO_MEDIO", text=preco_estado["PRECO_MEDIO"].map(lambda x: f"R$ {x:.3f}"), labels={"PRECO_MEDIO": "Preco Medio (R$/L)", "ESTADO": "Estado"})
@@ -121,7 +121,7 @@ st.plotly_chart(fig_estado, use_container_width=True)
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 st.markdown('<div class="section-label">Serie Historica</div>', unsafe_allow_html=True)
-st.markdown("### Evolucao do Preco Medio Nacional")
+st.markdown("<h3 style='font-family:Satoshi,sans-serif;font-weight:800;color:#e2e8f0;'>Evolucao do Preco Medio Nacional</h3>", unsafe_allow_html=True)
 
 evolucao = df_f.groupby("DATA_INICIAL")["PRECO_MEDIO"].mean().reset_index().dropna().sort_values("DATA_INICIAL")
 fig_hist = go.Figure()
@@ -131,7 +131,7 @@ st.plotly_chart(fig_hist, use_container_width=True)
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 st.markdown('<div class="section-label">Analise Economica</div>', unsafe_allow_html=True)
-st.markdown("### Regra dos 70% — Etanol vs Gasolina Comum")
+st.markdown("<h3 style='font-family:Satoshi,sans-serif;font-weight:800;color:#e2e8f0;'>Regra dos 70% - Etanol vs Gasolina Comum</h3>", unsafe_allow_html=True)
 st.markdown("""<div class="hero-sub">Se a razao <b style="color:#38bdf8;">Etanol / Gasolina</b> for menor que <b style="color:#f97316;">70%</b>, o etanol e economicamente mais vantajoso. Acima de 70%, a gasolina compensa.</div><br>""", unsafe_allow_html=True)
 
 mask_70 = df["PRODUTO"].isin(["GASOLINA COMUM", "ETANOL HIDRATADO"]) & (df["ANO"] >= ano_range[0]) & (df["ANO"] <= ano_range[1])
@@ -155,7 +155,7 @@ if not paridade.empty:
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 st.markdown('<div class="section-label">Comparativo Regional</div>', unsafe_allow_html=True)
-st.markdown("### Preco Medio por Regiao ao Longo dos Anos")
+st.markdown("<h3 style='font-family:Satoshi,sans-serif;font-weight:800;color:#e2e8f0;'>Preco Medio por Regiao ao Longo dos Anos</h3>", unsafe_allow_html=True)
 
 evolucao_regiao = df_f.groupby(["ANO", "REGIAO"])["PRECO_MEDIO"].mean().reset_index().dropna()
 fig_regiao = px.line(evolucao_regiao, x="ANO", y="PRECO_MEDIO", color="REGIAO", color_discrete_sequence=[ORANGE, BLUE, GREEN, "#a855f7", "#ec4899"], markers=True, labels={"PRECO_MEDIO": "Preco Medio (R$/L)", "ANO": "Ano", "REGIAO": "Regiao"})
@@ -186,4 +186,4 @@ with col_car:
     fig_car.update_layout(**LAYOUT_BASE, showlegend=False, yaxis_title="")
     st.plotly_chart(fig_car, use_container_width=True)
 
-st.markdown("""<div class="footer-text">Dados: ANP — Agencia Nacional do Petroleo · Serie Historica Semanal por Estado (2012–2026)<br>Desenvolvido por <b style="color:#f97316;">Flavio Paixao</b> · <a href="https://github.com/Flavio-Paixao" style="color:#38bdf8;">GitHub</a> · <a href="https://linkedin.com/in/flaviopx" style="color:#38bdf8;">LinkedIn</a></div>""", unsafe_allow_html=True)
+st.markdown("""<div class="footer-text">Dados: ANP — Agencia Nacional do Petroleo · Serie Historica Semanal por Estado (2012–2026)<br>Desenvolvido por <b style="color:#f97316;">Flavio Paixao</b> · <a href="https://github.com/Flavio-Paixao" style="color:#38bdf8;">GitHub</a> · <a href="https://linkedin.com/in/flaviopx" style="color:#38bdf8;">LinkedIn</a> · <a href="https://instagram.com/flaviopaixao.dev" style="color:#38bdf8;">Instagram</a></div>""", unsafe_allow_html=True)

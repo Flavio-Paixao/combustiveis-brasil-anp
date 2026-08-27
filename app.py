@@ -115,7 +115,7 @@ st.markdown("### Preco Medio de Revenda por Estado")
 
 preco_estado = df_f.groupby("ESTADO")["PRECO_MEDIO"].mean().reset_index().sort_values("PRECO_MEDIO").dropna()
 fig_estado = px.bar(preco_estado, x="ESTADO", y="PRECO_MEDIO", text=preco_estado["PRECO_MEDIO"].map(lambda x: f"R$ {x:.3f}"), labels={"PRECO_MEDIO": "Preco Medio (R$/L)", "ESTADO": "Estado"})
-fig_estado.update_traces(marker_color=ORANGE, marker_line_color=BLUE, marker_line_width=1, textposition="outside", textfont=dict(color=MUTED, size=10), opacity=0.9)
+fig_estado.update_traces(marker_color=ORANGE, marker_line_width=0, textposition="outside", textfont=dict(color=MUTED, size=10), opacity=0.9)
 fig_estado.update_layout(**LAYOUT_BASE)
 st.plotly_chart(fig_estado, use_container_width=True)
 
@@ -165,7 +165,7 @@ st.plotly_chart(fig_regiao, use_container_width=True)
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 st.markdown('<div class="section-label">Ranking</div>', unsafe_allow_html=True)
-st.markdown("### Top 5 — Estados Mais Caros e Mais Baratos")
+st.markdown("<h3 style="font-family: Satoshi, sans-serif; font-weight: 800;">Top 5 — Estados Mais Caros e Mais Baratos</h3>", unsafe_allow_html=True)
 
 preco_rank = df_f.groupby("ESTADO")["PRECO_MEDIO"].mean().reset_index().sort_values("PRECO_MEDIO").dropna()
 col_bar, col_car = st.columns(2)

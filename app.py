@@ -180,6 +180,7 @@ with col_bar:
 
 with col_car:
     st.markdown('<div class="section-label" style="color:#f97316;">Mais Caros</div>', unsafe_allow_html=True)
+    top_car = preco_rank.tail(5).sort_values("PRECO_MEDIO", ascending=False)
     fig_car = px.bar(top_car, x="PRECO_MEDIO", y="ESTADO", orientation="h", text=top_car["PRECO_MEDIO"].map(lambda x: f"R$ {x:.3f}"))
     fig_car.update_traces(marker_color=ORANGE, textposition="outside", textfont=dict(color=MUTED, size=10))
     fig_car.update_layout(**LAYOUT_BASE, showlegend=False, yaxis_title="")

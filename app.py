@@ -26,7 +26,7 @@ html, body, [class*="css"] {
     background-color: var(--bg) !important;
     color: var(--text) !important;
 }
-h1, h2, h3, h4 { font-family: 'Syne', sans-serif !important; font-weight: 800 !important; color: var(--text) !important; }
+h1, h2, h3, h4 { font-family: 'Satoshi', sans-serif !important; font-weight: 800 !important; color: var(--text) !important; }
 .hero-label { font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 0.15em; }
 .hero-title { font-family: 'Satoshi', sans-serif; font-size: clamp(28px, 4vw, 48px); font-weight: 800; color: var(--text); line-height: 1.1; margin: 8px 0 12px; }
 .hero-sub { font-family: 'Space Mono', monospace; font-size: 14px; color: var(--muted); line-height: 1.7; }

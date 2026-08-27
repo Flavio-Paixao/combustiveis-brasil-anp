@@ -174,12 +174,12 @@ with col_bar:
     top_bar = preco_rank.head(5)
     fig_bar = px.bar(top_bar, x="PRECO_MEDIO", y="ESTADO", orientation="h", text=top_bar["PRECO_MEDIO"].map(lambda x: f"R$ {x:.3f}"))
     fig_bar.update_traces(marker_color=GREEN, textposition="outside", textfont=dict(color=MUTED, size=10))
-    fig_bar.update_layout(**LAYOUT_BASE, showlegend=False, yaxis=dict(**LAYOUT_BASE["yaxis"], title=""))
+    fig_bar.update_layout(**LAYOUT_BASE, showlegend=False, yaxis_title="")
     st.plotly_chart(fig_bar, use_container_width=True)
 
 with col_car:
     st.markdown('<div class="section-label" style="color:#f97316;">Mais Caros</div>', unsafe_allow_html=True)
-    top_car = preco_rank.tail(5).sort_values("PRECO_MEDIO", ascending=False)
+    fig_car.update_layout(**LAYOUT_BASE, showlegend=False, yaxis_title="")
     fig_car = px.bar(top_car, x="PRECO_MEDIO", y="ESTADO", orientation="h", text=top_car["PRECO_MEDIO"].map(lambda x: f"R$ {x:.3f}"))
     fig_car.update_traces(marker_color=ORANGE, textposition="outside", textfont=dict(color=MUTED, size=10))
     fig_car.update_layout(**LAYOUT_BASE, showlegend=False, yaxis=dict(**LAYOUT_BASE["yaxis"], title=""))

@@ -165,7 +165,7 @@ st.plotly_chart(fig_regiao, use_container_width=True)
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 st.markdown('<div class="section-label">Ranking</div>', unsafe_allow_html=True)
-st.markdown("<h3 style="font-family: Satoshi, sans-serif; font-weight: 800;">Top 5 — Estados Mais Caros e Mais Baratos</h3>", unsafe_allow_html=True)
+st.markdown('<h3 style="font-family: Satoshi, sans-serif; font-weight: 800;">Top 5 &#8212; Estados Mais Caros e Mais Baratos</h3>', unsafe_allow_html=True)
 
 preco_rank = df_f.groupby("ESTADO")["PRECO_MEDIO"].mean().reset_index().sort_values("PRECO_MEDIO").dropna()
 col_bar, col_car = st.columns(2)

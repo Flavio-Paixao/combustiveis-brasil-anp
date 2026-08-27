@@ -15,6 +15,7 @@ st.set_page_config(
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap');
 :root {
     --bg: #0a0e17; --surface: #111827; --border: #1e2d45;
     --orange: #f97316; --blue: #38bdf8; --green: #22c55e;
@@ -27,7 +28,7 @@ html, body, [class*="css"] {
 }
 h1, h2, h3, h4 { font-family: 'Syne', sans-serif !important; font-weight: 800 !important; color: var(--text) !important; }
 .hero-label { font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 0.15em; }
-.hero-title { font-family: 'Syne', sans-serif; font-size: clamp(28px, 4vw, 48px); font-weight: 800; color: var(--text); line-height: 1.1; margin: 8px 0 12px; }
+.hero-title { font-family: 'Satoshi', sans-serif; font-size: clamp(28px, 4vw, 48px); font-weight: 800; color: var(--text); line-height: 1.1; margin: 8px 0 12px; }
 .hero-sub { font-family: 'Space Mono', monospace; font-size: 14px; color: var(--muted); line-height: 1.7; }
 .badge { display: inline-block; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; color: var(--green); border: 1px solid var(--green); padding: 3px 10px; text-transform: uppercase; letter-spacing: 0.06em; margin-right: 8px; }
 .badge-blue { color: var(--blue); border-color: var(--blue); }
@@ -46,7 +47,7 @@ TEXT = "#e2e8f0"; MUTED = "#64748b"
 LAYOUT_BASE = dict(
     plot_bgcolor=BG, paper_bgcolor=BG,
     font=dict(color=MUTED, family="Space Mono, monospace", size=12),
-    title=dict(font=dict(color=TEXT, family="Syne, sans-serif", size=18), x=0),
+    title=dict(font=dict(color=TEXT, family="Satoshi, sans-serif", size=18), x=0),
     xaxis=dict(showgrid=True, gridcolor=BORDER, title_font=dict(color=MUTED), tickfont=dict(color=MUTED)),
     yaxis=dict(showgrid=True, gridcolor=BORDER, title_font=dict(color=MUTED), tickfont=dict(color=MUTED)),
     margin=dict(l=40, r=40, t=60, b=40),
@@ -182,7 +183,7 @@ with col_car:
     fig_car.update_layout(**LAYOUT_BASE, showlegend=False, yaxis_title="")
     fig_car = px.bar(top_car, x="PRECO_MEDIO", y="ESTADO", orientation="h", text=top_car["PRECO_MEDIO"].map(lambda x: f"R$ {x:.3f}"))
     fig_car.update_traces(marker_color=ORANGE, textposition="outside", textfont=dict(color=MUTED, size=10))
-    fig_car.update_layout(**LAYOUT_BASE, showlegend=False, yaxis=dict(**LAYOUT_BASE["yaxis"], title=""))
+    fig_car.update_layout(**LAYOUT_BASE, showlegend=False, yaxis_title="")
     st.plotly_chart(fig_car, use_container_width=True)
 
 st.markdown("""<div class="footer-text">Dados: ANP — Agencia Nacional do Petroleo · Serie Historica Semanal por Estado (2012–2026)<br>Desenvolvido por <b style="color:#f97316;">Flavio Paixao</b> · <a href="https://github.com/Flavio-Paixao" style="color:#38bdf8;">GitHub</a> · <a href="https://linkedin.com/in/flaviopx" style="color:#38bdf8;">LinkedIn</a></div>""", unsafe_allow_html=True)
